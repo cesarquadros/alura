@@ -1,4 +1,4 @@
-package br.com.alura.listavip;
+package br.com.alura.listavip.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
