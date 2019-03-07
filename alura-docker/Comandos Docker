@@ -32,3 +32,114 @@ docker pull NOME_USUARIO/NOME_IMAGEM - baixa a imagem desejada do Docker Hub.
 Comandos relacionados à rede
 hostname -i - mostra o ip atribuído ao container pelo docker (funciona apenas dentro do container).
 docker network create --driver bridge NOME_DA_REDE - cria uma rede especificando o driver desejado.
+
+Cursos a fazer no Alura
+
+
+Integração continua
+- https://www.alura.com.br/curso-online-integracao-continua-jenkins - em curso
+	https://github.com/alura-cursos/argentum-web
+	http://www.loopfor.com.br/como-instalar-o-maven-no-mac-osx/
+
+1 - clone projeto
+2 - compilar projeto no maven(man compile)
+3 - gerar WAR(man package)
+4 - Deploy tomcat(pegar o WAR e jogar na pasta webapp do tomcat
+Derrubar tomcat -> ./shutdown.sh
+Iniciar tomcat - > ./startup.sh
+
+
+Android
+- https://www.alura.com.br/carreira-desenvolvimento-android
+
+Aws
+- https://www.alura.com.br/curso-online-spring-amazon
+
+Solid
+- https://cursos.alura.com.br/course/orientacao-a-objetos-avancada-e-principios-solid
+
+Selenium
+
+Docker
+- https://cursos.alura.com.br/course/docker-e-docker-compose
+-- docker version -> versao do docker instalado
+-- docker run NOME_PROJETO ->  cria um container com a respectiva imagem passada como parâmetro.  --name nome_projeto -> para nomea-lo
+	-- -e NOME_VARIAVEL_AMBIENTE="valor_variavel_ambiente"
+
+-- docker ps -> verifica os containers instalados
+	-- docker ps -a -> verificar tds containers, ate os parados
+	-- docker ps -q -> retorna apenas os id dos container
+
+-- docker run -it ubuntu -> Acessar a linha de comando do container
+-- sudo docker start -a -i 05025384675e -> subir o container pelo ID e integrar a linha de comando
+-- docker stop id_container -> parar um container
+	-- docker id stop $(docker ps -q)  -> para os processos que serao listados pelo proximo comando
+	-- -t X -> usado para parar em X tempo
+
+-- docker container prune -> remove todos containers
+-- docker rmi hello-world -> remover imagem
+-- docker rm ID_CONTAINER -> remove o container com id em questão.
+-- docker port idProcesso -> ver a porta que o static esta rodando
+-- Containers representam uma instância de uma imagem
+
+VOLUMES - Quando criar um volume no container, ele cria tambem uma pasta no docker host
+-- docker run -v "/var/www" nome_container -> vc cria um container e diz que a pasta /var/www sera um volume, isso ira lincar essa pasta, com uma pasta padrao da sua maquina fisica
+	-- docker run -v "C://user/desktop:/var/www" ubuntu -> mesma coisa que o passo acima, porem, a pasta local sera criada no local indicado, nesse caso C:user/desktop
+-- docker inspect ID_CONTAINER -> lista algumas configuracoes, umas delas é o Mounts, que esta relacionada com o volume que vc criou, no atributo source tem o caminho da pasta criada
+
+Rodando código em um container
+Criando um Dockerfile
+-- .dockerfile -> extensao do arquivo
+-- FROM -> criar imagem baseada em uma existente
+-- MAINTAINER -> qm cuida da imagem 
+-- COPY destino_conteudo-> copiar os arquivos da pasta onde esta sendo excutado
+-- WORKDIR caminho -> onde os comandos serao executados
+-- RUN comando(ex RUN npm install) -> comando a ser executado
+-- ENTRYPOINT comando(ex npm start) -> comando de entrada a ser executado
+-- EXPOSE 3000 -> porta
+-- docker build -> criar a imagem
+
+Criando a nossa própria rede do Docker
+-- docker network create -> criar uma rede
+	-- docker network create --driver bridge minha-rede
+		-- docker run -it --name meu-container-de-ubuntu --network minha-rede ubuntu -> criar o container especificando a rede
+
+Pegando dados de um banco em um outro container
+
+docker run -it --name NOME_CONTAINER --network NOME_DA_REDE NOME_IMAGEM -> cria um container especificando seu nome e qual rede deverá ser usada.
+docker network create --driver bridge NOME_DA_REDE -> cria uma rede especificando o driver desejado.
+
+Docker Compose
+
+docker-compose up - sobe os serviços criados
+docker-compose down - para os serviços criados.
+docker-compose ps - lista os serviços que estão rodando.
+docker exec -it alura-books-1 ping node2- executa o comando ping node2 dentro do container alura-books-1
+
+KUBERNETES
+	-o Kubernetes é utilizado para criar um cluster
+	- um cluster é um ou mais container para disponibilizar que que forma uma aplicação
+	- dentro do cluster as maquinas se conhecem mas existe um "gerente"
+	- o gerente se chama master (mestre em português)
+	- no cluster também tem um ou mais node para rodar a aplicação
+	- o Kubernetes tem o seu foco em aplicações que rodam usando containers
+	- o Kubernetes é uma plataforma open-source desenvolvida pela Google
+
+minikube start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
