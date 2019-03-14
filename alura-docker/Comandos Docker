@@ -73,7 +73,7 @@ Docker
 -- docker run -it ubuntu -> Acessar a linha de comando do container
 -- sudo docker start -a -i 05025384675e -> subir o container pelo ID e integrar a linha de comando
 -- docker stop id_container -> parar um container
-	-- docker id stop $(docker ps -q)  -> para os processos que serao listados pelo proximo comando
+	-- docker stop $(docker ps -q)  -> para os processos que serao listados pelo proximo comando
 	-- -t X -> usado para parar em X tempo
 
 -- docker container prune -> remove todos containers
